@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: 194a4808ff589af4fbf8a7d4a6065a35
+guid: 0e7f3c503b8d2b04ca6e4da9dc72ad4a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7377295934022830490
-    second: Background_1_0
+      213: 5551961203326288409
+    second: DEFEND_0
   - first:
-      213: -1362700950405810220
-    second: Background_1_1
+      213: -12976263019090658
+    second: DEFEND_1
   - first:
-      213: 5565823270580469403
-    second: Background_1_2
+      213: -8048313415167374310
+    second: DEFEND_2
+  - first:
+      213: 3729738533474728182
+    second: DEFEND_3
+  - first:
+      213: 7638037057871731419
+    second: DEFEND_4
+  - first:
+      213: 3724039543734530902
+    second: DEFEND_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background_1_0
+      name: DEFEND_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 247
-        width: 240
-        height: 25
+        x: 36
+        y: 22
+        width: 23
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 666b2a14f649e9990800000000000000
-      internalID: -7377295934022830490
+      spriteID: 91283038c478c0d40800000000000000
+      internalID: 5551961203326288409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_1_1
+      name: DEFEND_1
       rect:
         serializedVersion: 2
-        x: 261
-        y: 244
-        width: 235
-        height: 28
+        x: 127
+        y: 22
+        width: 31
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d779fb94b6b61de0800000000000000
-      internalID: -1362700950405810220
+      spriteID: e1d2c345826e1dff0800000000000000
+      internalID: -12976263019090658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background_1_2
+      name: DEFEND_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 496
-        height: 235
+        x: 221
+        y: 22
+        width: 33
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +187,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9e3d8d86c6cd3d40800000000000000
-      internalID: 5565823270580469403
+      spriteID: a1c00f73795ae4090800000000000000
+      internalID: -8048313415167374310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEFEND_3
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 22
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8f8d86f61b2c330800000000000000
+      internalID: 3729738533474728182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEFEND_4
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 22
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdad6bf6c32cff960800000000000000
+      internalID: 7638037057871731419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DEFEND_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 22
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 653fdc5fb327ea330800000000000000
+      internalID: 3724039543734530902
       vertices: []
       indices: 
       edges: []
@@ -198,9 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Background_1_0: -7377295934022830490
-      Background_1_1: -1362700950405810220
-      Background_1_2: 5565823270580469403
+      DEFEND_0: 5551961203326288409
+      DEFEND_1: -12976263019090658
+      DEFEND_2: -8048313415167374310
+      DEFEND_3: 3729738533474728182
+      DEFEND_4: 7638037057871731419
+      DEFEND_5: 3724039543734530902
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

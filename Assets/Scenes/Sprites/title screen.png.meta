@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4e7e7e94fa58fc24c9cbd88605fbb2c6
+guid: d31f8351e59c6e145974aead275ba4ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1728339315514028582
-    second: Title screen updated_0
+      213: -6848992694610132323
+    second: Copilot_20250925_141221_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Title screen updated_0
+      name: Copilot_20250925_141221_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 96
-        height: 96
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: addc177bc84b308e0800000000000000
-      internalID: -1728339315514028582
+      spriteID: d9284888e6d73f0a0800000000000000
+      internalID: -6848992694610132323
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Title screen updated_0: -1728339315514028582
+      Copilot_20250925_141221_0: -6848992694610132323
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

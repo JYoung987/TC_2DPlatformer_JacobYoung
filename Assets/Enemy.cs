@@ -7,13 +7,12 @@ public class Enemy : MonoBehaviour
     private float dazedTime;
     public float startDazedTime;
 
-    private Animator anim;
+    
     public GameObject bloodEffect;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        anim = GetComponent<Animator>();
-        anim.SetBool("isRunning", true);
+        
     }
 
     // Update is called once per frame
@@ -21,14 +20,14 @@ public class Enemy : MonoBehaviour
     {
         if(dazedTime <= 0)
         {
-            speed = 5;
+            speed = 0;
         }
         else
         {
             speed = 0;
             dazedTime -= Time.deltaTime;
         }
-        if (health > 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }

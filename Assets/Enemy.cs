@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     private float dazedTime;
     public float startDazedTime;
+    public AudioSource m_DeathSound;
 
     
     public GameObject bloodEffect;
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
         }
         if (health <= 0)
         {
+            m_DeathSound.Play();
             Destroy(gameObject);
         }
         transform.Translate(Vector2.left * speed * Time.deltaTime);

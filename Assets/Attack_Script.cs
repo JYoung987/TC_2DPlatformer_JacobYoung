@@ -9,6 +9,10 @@ public class Attack_Script : MonoBehaviour
 
     private bool comboLocked = false;
 
+    public AudioSource m_Attack1;
+    public AudioSource m_Attack2;
+    public AudioSource m_Attack3;
+
     private bool isComboWindowOpen = false;
     private float comboWindowStartTime;
     public float comboWindowDelay = 0.3f; // Time after attack starts before next input allowed
@@ -28,6 +32,7 @@ public class Attack_Script : MonoBehaviour
     private int comboStep = 0;
     private float lastAttackTime;
     public float comboResetTime = 1f;
+    private bool canAttack = true;
 
     void Update()
     {
@@ -38,11 +43,12 @@ public class Attack_Script : MonoBehaviour
             comboStep = 0;
         }
 
-        if (timeBetweenAttack <= 0)
+        if (canAttack && timeBetweenAttack <= 0)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 // Reset combo if too slow
+                canAttack = false;
                 if (Time.time - lastAttackTime > comboResetTime)
                 {
                     comboStep = 0;
@@ -61,17 +67,20 @@ public class Attack_Script : MonoBehaviour
                 {
                     animationTrigger = "attack";
                     damageToDeal = damage1;
+                    m_Attack1.Play();   
                     Debug.Log("Attack triggered: " + animationTrigger);
                 }
                 else if (comboStep == 2)
                 {
                     animationTrigger = "attack2";
-                    damageToDeal = damage2;
+                    damageToDeal = damage2; 
+                    m_Attack2.Play();
                 }
                 else if (comboStep == 3)
                 {
                     animationTrigger = "attack3";
                     damageToDeal = damage3;
+                    m_Attack3.Play();
                     comboStep = 0; // Reset after final hit
                 }
 
@@ -99,6 +108,7 @@ public class Attack_Script : MonoBehaviour
     {
         comboLocked = false;
         isAttacking = false;
+        canAttack = true;
         Debug.Log("Combo unlocked");
         comboStep = 0;
         playerAnimator.ResetTrigger("attack");

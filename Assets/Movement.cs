@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D m_Rigidbody;
     private bool isGrounded;
     private bool isSprinting;
+    public AudioSource m_JumpAudioSource;
 
     void Start()
     {
@@ -65,6 +66,7 @@ public class Movement : MonoBehaviour
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            m_JumpAudioSource.Play();
             m_Rigidbody.AddForce(Vector2.up * currentJumpPower, ForceMode2D.Impulse);
             anim.SetTrigger("jump");
         }

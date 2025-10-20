@@ -2,26 +2,22 @@ using UnityEngine;
 
 public class Attack_Script : MonoBehaviour
 {
-    private float timeBetweenAttack;
-    public float startTimeBetweenAttack;
+    public float timeBetweenAttack = 1.2f;
 
     private AnimatorStateInfo currentAnimState;
-
-    private bool comboLocked = false;
 
     public AudioSource m_Attack1;
     public AudioSource m_Attack2;
     public AudioSource m_Attack3;
+    private bool AttackLocked = false;
 
-    private bool isComboWindowOpen = false;
-    private float comboWindowStartTime;
-    public float comboWindowDelay = 0.3f; // Time after attack starts before next input allowed
+    public float attackCooldownTimer = 1;
 
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
     public int damage1 = 10;
-    public int damage2 = 8;
+    public int damage2 = 15;
     public int damage3 = 20;
 
     public Animator camAnimator;
@@ -31,7 +27,7 @@ public class Attack_Script : MonoBehaviour
 
     private int comboStep = 0;
     private float lastAttackTime;
-    public float comboResetTime = 1f;
+    public float comboResetTime = 1.8f;
     private bool canAttack = true;
 
     void Update()
@@ -43,12 +39,12 @@ public class Attack_Script : MonoBehaviour
             comboStep = 0;
         }
 
-        if (canAttack && timeBetweenAttack <= 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (canAttack)
             {
-                // Reset combo if too slow
-                canAttack = false;
+                isAttacking = true; 
+
                 if (Time.time - lastAttackTime > comboResetTime)
                 {
                     comboStep = 0;
@@ -56,7 +52,7 @@ public class Attack_Script : MonoBehaviour
 
                 comboStep++;
                 lastAttackTime = Time.time;
-                isAttacking = true;
+                canAttack = false;
 
                 camAnimator.SetTrigger("shake");
 
@@ -67,13 +63,13 @@ public class Attack_Script : MonoBehaviour
                 {
                     animationTrigger = "attack";
                     damageToDeal = damage1;
-                    m_Attack1.Play();   
+                    m_Attack1.Play();
                     Debug.Log("Attack triggered: " + animationTrigger);
                 }
                 else if (comboStep == 2)
                 {
                     animationTrigger = "attack2";
-                    damageToDeal = damage2; 
+                    damageToDeal = damage2;
                     m_Attack2.Play();
                 }
                 else if (comboStep == 3)
@@ -91,8 +87,6 @@ public class Attack_Script : MonoBehaviour
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damageToDeal);
                 }
-
-                timeBetweenAttack = startTimeBetweenAttack;
             }
         }
         else
@@ -101,20 +95,12 @@ public class Attack_Script : MonoBehaviour
         }
     }
 
-
-
     // Called by animation event at the end of each attack animation
     public void EndAttack()
     {
-        comboLocked = false;
         isAttacking = false;
         canAttack = true;
         Debug.Log("Combo unlocked");
-        comboStep = 0;
-        playerAnimator.ResetTrigger("attack");
-        playerAnimator.ResetTrigger("attack2");
-        playerAnimator.ResetTrigger("attack3");
-
     }
 
     void OnDrawGizmosSelected()

@@ -1,24 +1,28 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Cloud_MoveScript : MonoBehaviour
 {
+    public float scrollSpeed = 2f;
+    private float spriteWidth;
+    private Vector3 startPosition;
 
-    public float moveSpeed = 5;
-    public float deadZone = -45;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        spriteWidth = GetComponent<SpriteRenderer>().bounds.size.x;
+        startPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position= transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
-        if (transform.position.x < deadZone)
+        transform.Translate(Vector2.left * scrollSpeed * Time.deltaTime);
+
+        if (transform.position.x <= -37.75f)
         {
-            Debug.Log("Cloud Deleted");
-            Destroy(gameObject);
+            transform.position += new Vector3(spriteWidth * 4f, 0f, 0f);
         }
+
     }
+
 }

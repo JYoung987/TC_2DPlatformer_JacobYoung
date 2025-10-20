@@ -9,7 +9,7 @@ public class StartScreen : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Debug.Log("Running");
     }
 
     // Update is called once per frame
@@ -18,7 +18,6 @@ public class StartScreen : MonoBehaviour
     
         if(m_Elapsed < m_Duration)
         {
-            Debug.Log("Running");
             Color color = gameObject.GetComponent<SpriteRenderer>().color;
             float alpha = color.a;
             alpha = Mathf.Lerp(1f, 0f, m_Elapsed / m_Duration);

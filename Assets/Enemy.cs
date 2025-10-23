@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            speed = 0;
+            speed = 1;
             dazedTime -= Time.deltaTime;
         }
         if (health <= 0)

@@ -41,15 +41,16 @@ public class Attack_Script : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (canAttack)
+            if (canAttack == true)
             {
+                Debug.Log("CanAttack Triggered");
                 isAttacking = true; 
 
                 if (Time.time - lastAttackTime > comboResetTime)
                 {
                     comboStep = 0;
                 }
-
+                    
                 comboStep++;
                 lastAttackTime = Time.time;
                 canAttack = false;

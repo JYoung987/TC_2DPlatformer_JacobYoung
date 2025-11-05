@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/CitrioN/SMC/Demo/10. Menus/Simple TabMenu/Settings 1/SettingsMenu.unity
+    guid: a35529efab680244a8ad48eec956d252
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:

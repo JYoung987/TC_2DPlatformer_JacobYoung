@@ -8,6 +8,8 @@ public class Cloud_MoveScript : MonoBehaviour
     private float spriteWidth;
     private Vector3 startPosition;
 
+    public Transform cloudDelete;
+
     void Start()
     {
         spriteWidth = GetComponent<SpriteRenderer>().bounds.size.x;
@@ -18,7 +20,7 @@ public class Cloud_MoveScript : MonoBehaviour
     {
         transform.Translate(Vector2.left * scrollSpeed * Time.deltaTime);
 
-        if (transform.position.x <= -37.75f)
+        if (transform.position.x <= cloudDelete.transform.position.x)
         {
             transform.position += new Vector3(spriteWidth * 4f, 0f, 0f);
         }

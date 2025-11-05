@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Attack_Script : MonoBehaviour
@@ -17,6 +18,8 @@ public class Attack_Script : MonoBehaviour
 
     public LayerMask whatIsEnemies;
 
+    // Assign this in the Inspector (or rely on SwordCooldownManager.instance)
+    public SwordCooldownManager swordCooldownManager;
 
     public void Awake()
     {
@@ -35,7 +38,22 @@ public class Attack_Script : MonoBehaviour
     void Attack()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && !isAttacking)
-        {
+        {   
+            // Preferred: use the reference assigned in the Inspector
+            if (swordCooldownManager != null)
+            {
+                swordCooldownManager.CooldownStart(1f);
+            }
+            // Fallback: use the manager's static instance (if it sets instance in Awake)
+            else if (SwordCooldownManager.instance != null)
+            {
+                SwordCooldownManager.instance.CooldownStart(1f);
+            }
+            else
+            {
+                Debug.LogWarning("SwordCooldownManager not assigned and instance is null.");
+            }
+
             isAttacking = true;
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
             for (int i = 0; i < enemiesToDamage.Length; i++)

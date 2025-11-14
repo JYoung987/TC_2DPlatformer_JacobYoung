@@ -58,7 +58,7 @@ public class Attack_Script : MonoBehaviour
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
             for (int i = 0; i < enemiesToDamage.Length; i++)
             {
-                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damageToDeal);
+                enemiesToDamage[i].GetComponent<EnemyScript>().TakeDamage(damageToDeal);
             }
         }
     }

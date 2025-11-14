@@ -16,15 +16,13 @@ public class HealthManager : MonoBehaviour
     {
         if (healthAmount <= 0)
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             Application.LoadLevel(Application.loadedLevel);
+#pragma warning restore CS0618 // Type or member is obsolete
         }
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             TakeDamage(20);
-        }
-        if (Input.GetKeyDown(KeyCode.RightShift))
-        {
-            Heal(20);
         }
     }
 
